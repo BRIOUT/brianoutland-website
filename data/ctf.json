@@ -1,0 +1,60 @@
+{
+  "statistics": {
+    "totalCompetitions": 3,
+    "totalChallengesSolved": 45,
+    "totalPoints": 26450,
+    "averagePlacement": "Top 10%"
+  },
+  "competitions": [
+    {
+      "id": 1,
+      "name": "HackTheBox University CTF 2024",
+      "organizer": "HackTheBox",
+      "date": "October 20, 2024",
+      "placement": "45th out of 500",
+      "score": 8750,
+      "challengesSolved": 12,
+      "totalChallenges": 20,
+      "categories": ["Web", "Crypto", "Pwn", "Reversing"],
+      "featured": true,
+      "highlights": [
+        "Solved all web challenges",
+        "First blood on 'Crypto Master' challenge",
+        "Top 10% placement"
+      ],
+      "writeups": [
+        {
+          "challenge": "Web - Admin Panel",
+          "difficulty": "Hard",
+          "points": 500,
+          "category": "Web",
+          "solution": "Discovered JWT secret through timing attack on verification endpoint. Generated valid admin token and accessed restricted admin panel."
+        },
+        {
+          "challenge": "Crypto - RSA Madness",
+          "difficulty": "Medium",
+          "points": 350,
+          "category": "Crypto",
+          "solution": "Used low exponent attack (e=3) to decrypt ciphertext. Implemented cube root attack in Python."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "PicoCTF 2024",
+      "organizer": "Carnegie Mellon University",
+      "date": "September 15, 2024",
+      "placement": "Top 5%",
+      "score": 12500,
+      "challengesSolved": 25,
+      "totalChallenges": 30,
+      "categories": ["Web", "Binary", "Crypto", "Forensics"],
+      "featured": true,
+      "highlights": [
+        "Completed all beginner challenges",
+        "Perfect score in forensics category"
+      ],
+      "writeups": []
+    }
+  ]
+}

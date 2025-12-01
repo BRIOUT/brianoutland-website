@@ -1,0 +1,43 @@
+{
+  "statistics": {
+    "totalSubmissions": 3,
+    "resolvedSubmissions": 2,
+    "totalEarnings": "$3,250",
+    "severities": {
+      "critical": 1,
+      "high": 1,
+      "medium": 1,
+      "low": 0
+    }
+  },
+  "submissions": [
+    {
+      "id": 1,
+      "title": "Cross-Site Scripting (XSS) in User Profile",
+      "program": "HackerOne - Example Company",
+      "severity": "High",
+      "cvss": "7.4",
+      "status": "Resolved",
+      "bounty": "$500",
+      "vulnerability": "Stored XSS",
+      "description": "Discovered a stored XSS vulnerability in the user profile bio field",
+      "impact": "Potential account takeover, session hijacking, and phishing attacks",
+      "discovery": "While testing input validation, noticed the bio field wasn't properly sanitizing HTML input",
+      "remediation": "Implemented proper output encoding using DOMPurify library and Content Security Policy headers"
+    },
+    {
+      "id": 2,
+      "title": "SQL Injection in Search Functionality",
+      "program": "Bugcrowd - Tech Startup",
+      "severity": "Critical",
+      "cvss": "9.8",
+      "status": "Resolved",
+      "bounty": "$2,000",
+      "vulnerability": "SQL Injection",
+      "description": "Found SQL injection vulnerability in the search parameter",
+      "impact": "Complete database compromise, ability to read/modify/delete sensitive user data",
+      "discovery": "During testing, noticed error messages that revealed database structure",
+      "remediation": "Migrated to parameterized queries and implemented prepared statements"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "certifications": [
+    {
+      "name": "Google Cybersecurity Professional Certificate",
+      "issuer": "Google / Coursera",
+      "date": "November 2024",
+      "description": "Comprehensive 8-course program covering cybersecurity foundations, network security, Linux, SQL, Python automation, incident detection and response, and security operations.",
+      "tags": ["Cybersecurity", "Python", "Linux", "SIEM", "IDS", "Network Security"],
+      "verifyUrl": "https://www.credly.com/badges/e43e1241-85a1-45a2-9e4d-f305c3ad52d1/linked_in_profile",
+      "logo": "assets/google-cyber-cert.png"
+    },
+    {
+      "name": "CompTIA Security+",
+      "issuer": "CompTIA",
+      "date": "January 2024",
+      "description": "Foundational cybersecurity certification covering network security, compliance, and operational security.",
+      "tags": ["Security", "Compliance", "Fundamentals"],
+      "verifyUrl": "https://www.certmetrics.com/comptia/public/verification.aspx"
+    },
+    {
+      "name": "Certified Ethical Hacker (CEH)",
+      "issuer": "EC-Council",
+      "date": "March 2024",
+      "description": "Advanced certification in ethical hacking methodologies and penetration testing techniques.",
+      "tags": ["Pentesting", "Ethical Hacking", "Advanced"],
+      "verifyUrl": "https://aspen.eccouncil.org/Verify"
+    }
+  ]
+}

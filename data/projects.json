@@ -1,0 +1,24 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Network Penetration Testing Lab",
+      "objective": "Build a virtualized network environment to practice penetration testing techniques",
+      "methodology": "Created isolated VMs using VirtualBox with vulnerable machines (Metasploitable, DVWA) and Kali Linux as attacking platform",
+      "tools": ["Kali Linux", "Metasploit", "Nmap", "Wireshark", "Burp Suite"],
+      "learnings": "Gained hands-on experience with reconnaissance, exploitation, and post-exploitation techniques.",
+      "status": "Completed",
+      "tags": ["Pentesting", "Network Security", "Lab"]
+    },
+    {
+      "id": 2,
+      "title": "Web Application Security Testing",
+      "objective": "Identify and exploit common web vulnerabilities in controlled environments",
+      "methodology": "Systematic testing of OWASP Top 10 vulnerabilities using automated and manual techniques",
+      "tools": ["OWASP ZAP", "SQLMap", "Burp Suite", "Python"],
+      "learnings": "Deep understanding of SQL injection, XSS, CSRF, and remediation strategies.",
+      "status": "Completed",
+      "tags": ["Web Security", "OWASP", "Pentesting"]
+    }
+  ]
+}
