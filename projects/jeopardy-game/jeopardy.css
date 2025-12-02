@@ -1,0 +1,121 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Copse', serif;
+  background-color: #115ff4;
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+header {
+  margin: 30px auto;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#start {
+  background-color: #28a200;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  font-family: 'Copse', serif;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+}
+
+#start:hover {
+  background-color: #74119c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+#start:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#spin-container {
+  display: none;
+  margin: 20px auto;
+}
+
+#spin {
+  font-size: 3em;
+  color: white;
+}
+
+#jeopardy {
+  margin: 30px auto;
+  border-collapse: collapse;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+#jeopardy thead th {
+  background-color: #060ce9;
+  color: white;
+  font-size: 1.3em;
+  padding: 15px;
+  border: 2px solid #115ff4;
+  font-weight: normal;
+  text-transform: uppercase;
+  min-width: 150px;
+}
+
+#jeopardy tbody td {
+  background-color: #060ce9;
+  color: #daa520;
+  font-size: 2em;
+  padding: 15px;
+  border: 2px solid #115ff4;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 150px;
+  height: 100px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+#jeopardy tbody td:hover {
+  background-color: #074cc4;
+  transform: scale(1.05);
+}
+
+.showing-question {
+  font-size: 0.9em !important;
+  color: white !important;
+  font-weight: normal !important;
+}
+
+.showing-answer {
+  background-color: #28a200 !important;
+  font-size: 0.85em !important;
+  color: white !important;
+  font-weight: normal !important;
+}
+
+@media (max-width: 1200px) {
+  #jeopardy thead th,
+  #jeopardy tbody td {
+    min-width: 100px;
+    width: 100px;
+    font-size: 0.9em;
+  }
+
+  #jeopardy tbody td {
+    font-size: 1.5em;
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Jeopardy! Game",
+      "description": "Interactive Jeopardy game that fetches real questions from an API, with dynamic categories and question/answer reveal mechanics",
+      "role": "Frontend Developer",
+      "teamSize": "Solo Project",
+      "duration": "1 week",
+      "technologies": ["HTML", "CSS", "JavaScript", "jQuery", "Axios", "Lodash", "REST API"],
+      "features": [
+        "Fetches random categories from Jeopardy API",
+        "6 categories with 5 questions each",
+        "Click to reveal question, click again to reveal answer",
+        "Loading state with spinner animation",
+        "Restart game to get new categories",
+        "Responsive design for different screen sizes",
+        "Visual feedback on hover and click"
+      ],
+      "challenges": "Managing asynchronous API calls and ensuring smooth data flow between multiple categories. Handling different states (loading, question, answer) for each clue cell.",
+      "learnings": "Gained experience with async/await, working with external APIs, DOM manipulation with jQuery, and state management in vanilla JavaScript. Learned to handle API responses and dynamically populate HTML tables.",
+      "githubUrl": "https://github.com/yourusername/jeopardy-game",
+      "liveUrl": "",
+      "projectFile": "projects/jeopardy-game/index.html",
+      "status": "Completed",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "E-Commerce Platform (Capstone Project)",
+      "description": "Full-stack e-commerce platform with user authentication, product catalog, shopping cart, and payment integration - Currently in planning/development phase",
+      "role": "Full-Stack Developer",
+      "teamSize": "Solo Project",
+      "duration": "In Progress",
+      "technologies": ["React", "Node.js", "Express", "MongoDB", "Stripe API", "JWT"],
+      "features": [
+        "User authentication and authorization",
+        "Product browsing with search and filters",
+        "Shopping cart functionality",
+        "Secure payment processing with Stripe",
+        "Order history and tracking",
+        "Admin dashboard for product management"
+      ],
+      "challenges": "Building a secure, scalable e-commerce solution with proper payment handling and user management",
+      "learnings": "Will gain deep understanding of authentication flows, API integration, payment processing, and state management in React",
+      "githubUrl": "",
+      "liveUrl": "",
+      "projectFile": "",
+      "status": "Planned",
+      "featured": false
+    }
+  ]
+}

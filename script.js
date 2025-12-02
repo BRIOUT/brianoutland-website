@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initTheme();
     initMobileMenu();
     loadCertifications();
+    loadBootcampProjects();
     loadProjects();
     loadBugBounties();
     loadCTF();
     initContactForm();
+    initProjectModal();
 });
 
 // ============================================
@@ -131,6 +133,119 @@ function renderCertifications(certifications) {
                         <span>Verify Certificate</span>
                     </a>
                 ` : ''}
+            </div>
+        </div>
+    `).join('');
+}
+
+// ============================================
+// LOAD BOOTCAMP PROJECTS
+// ============================================
+
+async function loadBootcampProjects() {
+    const container = document.getElementById('bootcamp-projects-container');
+
+    if (!container) {
+        console.error('Bootcamp projects container not found');
+        return;
+    }
+
+    try {
+        const response = await fetch('/data/bootcamp-projects.json');
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Bootcamp projects loaded:', data);
+        renderBootcampProjects(data.projects);
+
+    } catch (error) {
+        console.error('Error loading bootcamp projects:', error);
+        console.log('Using sample data instead');
+        renderBootcampProjects(getSampleBootcampProjects());
+    }
+}
+
+function renderBootcampProjects(projects) {
+    const container = document.getElementById('bootcamp-projects-container');
+
+    if (!projects || projects.length === 0) {
+        container.innerHTML = '<p class="loading">No bootcamp projects to display yet.</p>';
+        return;
+    }
+
+    container.innerHTML = projects.map(project => `
+        <div class="card expandable-card fade-in ${project.featured ? 'featured-project' : ''}">
+            <button class="expand-toggle" onclick="toggleExpand('bootcamp-${project.id}')">
+                <div style="flex: 1;">
+                    <div class="card-title">
+                        ${project.title}
+                        ${project.featured ? '<i class="fas fa-star" style="color: #fbbf24; margin-left: 0.5rem;"></i>' : ''}
+                        <span class="badge badge-${project.status === 'Completed' ? 'success' : project.status === 'In Progress' ? 'warning' : 'info'}">
+                            ${project.status}
+                        </span>
+                    </div>
+                    <div class="card-subtitle">${project.description}</div>
+                </div>
+                <i class="fas fa-chevron-down expand-icon" id="icon-bootcamp-${project.id}"></i>
+            </button>
+
+            <div class="expanded-content" id="content-bootcamp-${project.id}">
+                <div class="card-content">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <h4><i class="fas fa-user"></i> Role</h4>
+                            <p>${project.role}</p>
+                        </div>
+                        <div>
+                            <h4><i class="fas fa-users"></i> Team</h4>
+                            <p>${project.teamSize}</p>
+                        </div>
+                        <div>
+                            <h4><i class="fas fa-clock"></i> Duration</h4>
+                            <p>${project.duration}</p>
+                        </div>
+                    </div>
+
+                    <h4><i class="fas fa-tools"></i> Technologies</h4>
+                    <div class="tags">
+                        ${project.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+                    </div>
+
+                    <h4><i class="fas fa-list-check"></i> Key Features</h4>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+
+                    <h4><i class="fas fa-mountain"></i> Challenges</h4>
+                    <p>${project.challenges}</p>
+
+                    <h4><i class="fas fa-lightbulb"></i> Key Learnings</h4>
+                    <p>${project.learnings}</p>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        ${project.projectFile || project.liveUrl ? `
+                            <button onclick='openProjectModal(${JSON.stringify(project).replace(/'/g, "&#39;")})' class="btn btn-view-project">
+                                <i class="fas fa-eye"></i>
+                                <span>View Project</span>
+                            </button>
+                        ` : ''}
+                        ${project.githubUrl ? `
+                            <a href="${project.githubUrl}" target="_blank" class="btn btn-verify">
+                                <i class="fab fa-github"></i>
+                                <span>View Code</span>
+                            </a>
+                        ` : ''}
+                        ${project.liveUrl && !project.projectFile ? `
+                            <a href="${project.liveUrl}" target="_blank" class="btn btn-verify">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Live Demo</span>
+                            </a>
+                        ` : ''}
+                    </div>
+                </div>
             </div>
         </div>
     `).join('');
@@ -625,4 +740,172 @@ function getSampleCTF() {
             }
         ]
     };
+}
+function getSampleBootcampProjects() {
+    return [
+        {
+            id: 1,
+            title: 'E-Commerce Application',
+            description: 'Full-stack e-commerce platform with user authentication, product catalog, and payment integration',
+            role: 'Full-Stack Developer',
+            teamSize: 'Solo Project',
+            duration: '3 weeks',
+            technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe API'],
+            features: [
+                'User authentication and authorization',
+                'Product browsing with search and filters',
+                'Shopping cart functionality',
+                'Secure payment processing',
+                'Order history and tracking'
+            ],
+            challenges: 'Implementing secure payment processing and managing complex state',
+            learnings: 'Gained deep understanding of authentication flows and API integration',
+            githubUrl: 'https://github.com/yourusername/ecommerce-app',
+            liveUrl: '',
+            status: 'Completed',
+            featured: true
+        },
+        {
+            id: 2,
+            title: 'Weather Dashboard',
+            description: 'Interactive weather application with location-based forecasts',
+            role: 'Frontend Developer',
+            teamSize: 'Solo Project',
+            duration: '1 week',
+            technologies: ['HTML', 'CSS', 'JavaScript', 'OpenWeather API'],
+            features: [
+                'Current weather and 5-day forecast',
+                'Location search with autocomplete',
+                'Responsive design',
+                'Local storage for saved locations'
+            ],
+            challenges: 'Handling asynchronous API calls and error handling',
+            learnings: 'Improved skills in working with APIs and async/await',
+            githubUrl: 'https://github.com/yourusername/weather-dashboard',
+            liveUrl: 'https://yourusername.github.io/weather-dashboard',
+            status: 'Completed',
+            featured: false
+        }
+    ];
+}
+
+// ============================================
+// PROJECT MODAL VIEWER
+// ============================================
+
+function initProjectModal() {
+    const modal = document.getElementById('project-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const iframe = document.getElementById('project-iframe');
+
+    if (!modal || !closeBtn) {
+        console.log('Modal elements not found');
+        return;
+    }
+
+    // Close modal on button click
+    closeBtn.addEventListener('click', closeProjectModal);
+
+    // Close modal on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeProjectModal();
+        }
+    });
+
+    // Prevent body scroll when modal is open
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class') {
+                if (modal.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    });
+
+    observer.observe(modal, { attributes: true });
+}
+
+function openProjectModal(projectData) {
+    const modal = document.getElementById('project-modal');
+    const title = document.getElementById('modal-project-title');
+    const links = document.getElementById('modal-project-links');
+    const iframe = document.getElementById('project-iframe');
+    const loading = document.getElementById('modal-loading');
+
+    if (!modal || !title || !links || !iframe) {
+        console.error('Modal elements not found');
+        return;
+    }
+
+    // Set title
+    title.textContent = projectData.title;
+
+    // Set links
+    links.innerHTML = '';
+    if (projectData.githubUrl) {
+        links.innerHTML += `
+            <a href="${projectData.githubUrl}" target="_blank">
+                <i class="fab fa-github"></i> Code
+            </a>
+        `;
+    }
+    if (projectData.liveUrl) {
+        links.innerHTML += `
+            <a href="${projectData.liveUrl}" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Live Site
+            </a>
+        `;
+    }
+
+    // Show modal
+    modal.classList.add('active');
+    loading.style.display = 'block';
+    iframe.style.display = 'none';
+
+    // Load project in iframe
+    if (projectData.projectFile) {
+        iframe.src = projectData.projectFile;
+
+        iframe.onload = function() {
+            loading.style.display = 'none';
+            iframe.style.display = 'block';
+        };
+
+        iframe.onerror = function() {
+            loading.innerHTML = `
+                <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>
+                <p>Could not load project. Try the live link instead.</p>
+            `;
+        };
+    } else if (projectData.liveUrl) {
+        // If no project file, load live URL
+        iframe.src = projectData.liveUrl;
+
+        iframe.onload = function() {
+            loading.style.display = 'none';
+            iframe.style.display = 'block';
+        };
+    } else {
+        loading.innerHTML = `
+            <i class="fas fa-info-circle" style="color: var(--accent-color);"></i>
+            <p>Interactive demo not available. Check GitHub for code.</p>
+        `;
+    }
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    const iframe = document.getElementById('project-iframe');
+
+    if (modal) {
+        modal.classList.remove('active');
+        // Clear iframe to stop any running code
+        if (iframe) {
+            iframe.src = '';
+        }
+    }
 }

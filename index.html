@@ -22,8 +22,10 @@
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#bootcamp-projects">Bootcamp Projects</a></li>
+                <li><a href="#projects">Security Projects</a></li>
                 <li><a href="#bounties">Bug Bounties</a></li>
                 <li><a href="#ctf">CTF</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -80,9 +82,63 @@
                 <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <a href="mailto:your.email@example.com" class="social-link">
+                <a href="/cdn-cgi/l/email-protection#ee97819b9cc08b838f8782ae8b968f839e828bc08d8183" class="social-link">
                     <i class="fas fa-envelope"></i> Email
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section education-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                Education
+            </h2>
+            <div class="education-content">
+                <div class="card fade-in education-card">
+                    <div class="education-header">
+                        <div>
+                            <div class="card-title">Software Engineering Bootcamp</div>
+                            <div class="card-subtitle">
+                                <i class="fas fa-university"></i> University of South Florida
+                            </div>
+                        </div>
+                        <div class="education-status">
+                            <span class="badge badge-success">Currently Enrolled</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p>
+                            Intensive full-stack software engineering program focusing on modern web development,
+                            software architecture, and collaborative programming practices. Building production-ready
+                            applications using industry-standard tools and methodologies.
+                        </p>
+                        <h4><i class="fas fa-code"></i> Core Technologies</h4>
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">REST APIs</span>
+                        </div>
+                        <h4><i class="fas fa-chart-line"></i> Focus Areas</h4>
+                        <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <li>Full-stack web development (MERN Stack)</li>
+                            <li>Database design and management</li>
+                            <li>Responsive design and UI/UX principles</li>
+                            <li>Agile development methodologies</li>
+                            <li>Version control and collaborative workflows</li>
+                            <li>Deployment and DevOps practices</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -100,7 +156,24 @@
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
+    <!-- BOOTCAMP PROJECTS SECTION -->
+    <section id="bootcamp-projects" class="section bootcamp-projects-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-laptop-code"></i>
+                Bootcamp Projects
+            </h2>
+            <p class="section-intro">
+                Full-stack applications and projects built during the USF Software Engineering Bootcamp,
+                showcasing modern web development skills and collaborative teamwork.
+            </p>
+            <div id="bootcamp-projects-container" class="projects-list">
+                <div class="loading">Loading bootcamp projects...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY PROJECTS SECTION -->
     <section id="projects" class="section projects-section">
         <div class="container">
             <h2 class="section-title">
@@ -213,5 +286,25 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+
+    <!-- PROJECT VIEWER MODAL -->
+    <div id="project-modal" class="project-modal">
+        <div class="modal-header">
+            <div class="modal-title-section">
+                <h3 id="modal-project-title">Project Title</h3>
+                <div id="modal-project-links" class="modal-links"></div>
+            </div>
+            <button id="close-modal" class="close-modal-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-content">
+            <div id="modal-loading" class="modal-loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading project...</p>
+            </div>
+            <iframe id="project-iframe" class="project-frame"></iframe>
+        </div>
+    </div>
 </body>
 </html>
