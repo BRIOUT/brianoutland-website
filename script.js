@@ -90,7 +90,7 @@ async function loadCertifications() {
     }
 
     try {
-        const response = await fetch('/data/certifications.json');
+        const response = await fetch('./data/certifications.json');
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -151,7 +151,7 @@ async function loadBootcampProjects() {
     }
 
     try {
-        const response = await fetch('/data/bootcamp-projects.json');
+        const response = await fetch('./data/bootcamp-projects.json');
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -264,7 +264,7 @@ async function loadProjects() {
     }
 
     try {
-        const response = await fetch('/data/projects.json');
+        const response = await fetch('./data/projects.json');
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -332,7 +332,7 @@ function renderProjects(projects) {
 
 async function loadBugBounties() {
     try {
-        const response = await fetch('/data/bugbounties.json');
+        const response = await fetch('./data/bugbounties.json');
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -438,7 +438,7 @@ function renderBugBounties(bounties) {
 
 async function loadCTF() {
     try {
-        const response = await fetch('/data/ctf.json');
+        const response = await fetch('./data/ctf.json');
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
