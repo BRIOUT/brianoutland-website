@@ -1,7 +1,33 @@
 {
   "projects": [
     {
-      "id": 1,
+      "id": "dunder-mifflin-ecommerce",
+      "title": "Dunder-Mifflen Paper Company (MERN E-Commerce)",
+      "description": "Full-stack MERN e-commerce platform featuring user authentication, shopping cart with persistent storage, Stripe payment integration, admin dashboard for product and order management, and 25+ products across multiple categories.",
+      "role": "Full-Stack Developer",
+      "teamSize": "Solo Project",
+      "duration": "12 weeks",
+      "technologies": ["React", "Node.js", "Express", "MongoDB", "Stripe", "JWT", "bcrypt", "Nginx", "PM2", "Let's Encrypt SSL"],
+      "features": [
+        "Secure JWT authentication with password hashing",
+        "Shopping cart with database persistence across sessions",
+        "Stripe payment processing integration",
+        "Admin dashboard with sales analytics and inventory management",
+        "Product search, filtering, and sorting",
+        "Order tracking with status updates",
+        "Forgot password functionality",
+        "Real-time low stock alerts for admins",
+        "Complete CRUD operations for products and orders"
+      ],
+      "challenges": "Deploying a full-stack application to a Raspberry Pi with proper SSL configuration, managing environment variables across development and production, implementing secure authentication with JWT tokens, and integrating Stripe payment processing.",
+      "learnings": "Gained comprehensive experience with the MERN stack, implementing REST APIs, secure authentication patterns, payment gateway integration, database design with MongoDB, Linux server administration, Nginx configuration, and production deployment workflows.",
+      "githubUrl": "https://github.com/BRIOUT/dunder-mifflin-ecommerce",
+      "liveUrl": "https://shop.brianoutland.org",
+      "status": "Completed",
+      "featured": true
+    },
+    {
+      "id": "jeopardy-game",
       "title": "Jeopardy! Game",
       "description": "Interactive Jeopardy game that fetches real questions from an API, with dynamic categories and question/answer reveal mechanics",
       "role": "Frontend Developer",
@@ -18,35 +44,10 @@
         "Visual feedback on hover and click"
       ],
       "challenges": "Managing asynchronous API calls and ensuring smooth data flow between multiple categories. Handling different states (loading, question, answer) for each clue cell.",
-      "learnings": "Gained experience with async/await, working with external APIs, DOM manipulation with jQuery, and state management in vanilla JavaScript. Learned to handle API responses and dynamically populate HTML tables.",
-      "githubUrl": "https://github.com/yourusername/jeopardy-game",
-      "liveUrl": "",
-      "projectFile": "projects/jeopardy-game/index.html",
+      "learnings": "Gained experience with async/await, working with external APIs, DOM manipulation with jQuery, and state management in vanilla JavaScript. Learned to handle API responses and dynamically populate HTML elements.",
+      "githubUrl": "https://github.com/BRIOUT/jeopardy",
+      "liveUrl": "https://brianoutland.org/projects/jeopardy-game/index.html",
       "status": "Completed",
-      "featured": true
-    },
-    {
-      "id": 2,
-      "title": "E-Commerce Platform (Capstone Project)",
-      "description": "Full-stack e-commerce platform with user authentication, product catalog, shopping cart, and payment integration - Currently in planning/development phase",
-      "role": "Full-Stack Developer",
-      "teamSize": "Solo Project",
-      "duration": "In Progress",
-      "technologies": ["React", "Node.js", "Express", "MongoDB", "Stripe API", "JWT"],
-      "features": [
-        "User authentication and authorization",
-        "Product browsing with search and filters",
-        "Shopping cart functionality",
-        "Secure payment processing with Stripe",
-        "Order history and tracking",
-        "Admin dashboard for product management"
-      ],
-      "challenges": "Building a secure, scalable e-commerce solution with proper payment handling and user management",
-      "learnings": "Will gain deep understanding of authentication flows, API integration, payment processing, and state management in React",
-      "githubUrl": "",
-      "liveUrl": "",
-      "projectFile": "",
-      "status": "Planned",
       "featured": false
     }
   ]
