@@ -226,7 +226,7 @@ function renderBootcampProjects(projects) {
                     <p>${project.learnings}</p>
 
                     <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                        ${project.projectFile || project.liveUrl ? `
+                        ${project.projectFile ? `
                             <button onclick='openProjectModal(${JSON.stringify(project).replace(/'/g, "&#39;")})' class="btn btn-view-project">
                                 <i class="fas fa-eye"></i>
                                 <span>View Project</span>
